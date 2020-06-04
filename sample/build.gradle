@@ -1,10 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
+    buildToolsVersion '28.0.3'
     compileSdkVersion project.androidTargetSdk
 
     defaultConfig {
-        minSdkVersion 24
+        minSdkVersion 22
         targetSdkVersion project.androidTargetSdk
         versionCode 410
         versionName "4.1.0"
@@ -60,10 +61,14 @@ android {
 dependencies {
     // If you use this from an external project, use the following instead:
     //   implementation 'com.journeyapps:zxing-android-embedded:<version>'
-    implementation project(':zxing-android-embedded')
+    //implementation project(':zxing-android-embedded')
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    //implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+
+    implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.zxing:core:3.3.0'
 
     // leakcanary is for development purposes only
     // https://github.com/square/leakcanary
